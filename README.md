@@ -15,6 +15,6 @@ the width and height of the space you wish to partition so eloquently
     var tree = new QuadTree(width, height);
     tree.insert(item); //where item is an object with an x and y value.
     tree.retrieve(item); //where item is an object with an x and y value.
+    //retrieve returns all objects which could collide with item
 ```
-retrieve returns all objects which could collide with item
 insert can also take arrays. Because that's useful.
