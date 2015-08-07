@@ -35,7 +35,7 @@ class Node {
 
     retrieve(key) {
         if(this.children.length) {
-            return this.children[this.index(key)].retrieve(key);
+            return this.children[this.index(key)].retrieve(key).concat(this.objects);
         } else return this.objects;
     }
 
