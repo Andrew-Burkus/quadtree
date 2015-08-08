@@ -1,5 +1,5 @@
-const MAX_OBJECTS = 4;
-const MAX_DEPTH = 25;
+const MAX_OBJECTS = 1;
+const MAX_DEPTH = 1000;
 
 class QuadTree {
     constructor(width, height) {

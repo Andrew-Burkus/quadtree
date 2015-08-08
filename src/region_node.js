@@ -32,7 +32,11 @@ class RegionNode extends Node {
 
     retrieve(key) {
         if(this.children.length) {
-            return this.children[this.index(key)].retrieve(key);
+            if(this.prev) return this.prev;
+            else {
+                this.prev = this.children[this.index(key)].retrieve(key);
+                return this.prev;
+            }
         } else return this.objects.concat(this.misfits);
     }
 

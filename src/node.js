@@ -1,7 +1,7 @@
-var NW = 0;
-var NE = 1;
-var SW = 2;
-var SE = 3;
+const NW = 0;
+const NE = 1;
+const SW = 2;
+const SE = 3;
 
 class Node {
     constructor(x, y, width, height, depth) {
@@ -12,6 +12,7 @@ class Node {
         this.depth = depth;
         this.children = [];
         this.objects = [];
+        this.prev = null;
     }
 
     insert(key) {
@@ -35,7 +36,11 @@ class Node {
 
     retrieve(key) {
         if(this.children.length) {
-            return this.children[this.index(key)].retrieve(key).concat(this.objects);
+            if(this.prev) return this.prev;
+            else {
+                this.prev = this.children[this.index(key)].retrieve(key).concat(this.objects);
+                return this.prev;
+            }
         } else return this.objects;
     }
 
