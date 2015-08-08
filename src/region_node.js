@@ -23,6 +23,9 @@ class RegionNode extends Node {
                     var child = this.children[index];
                     child.insert(key);
                 }
+                while(this.misfits.length > 0) {
+                    this.insert(this.misfits.pop());
+                }
             }
         }
     }
