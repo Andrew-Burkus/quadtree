@@ -31,7 +31,7 @@ class RegionNode extends Node {
         if(this.children.length) {
             return this.children[this.index(key)]
                 .retrieve(key)
-                .concat(this.misfts)
+                .concat(this.misfits)
                 .concat(this.objects);
         } else return this.objects.concat(this.misfits);
     }
