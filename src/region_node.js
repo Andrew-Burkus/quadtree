@@ -31,9 +31,13 @@ class RegionNode extends Node {
     }
 
     retrieve(key) {
+        var out = [];
         if(this.children.length) {
-            return this.children[this.index(key)].retrieve(key);
-        } else return this.objects.concat(this.misfits);
+            out.push.apply(out, this.children[this.index(key)].retrieve(key));
+        }
+        out.push.apply(out, this.misfits);
+        out.push.apply(out, this.objects);
+        return out;
     }
 
     fits(key) {
