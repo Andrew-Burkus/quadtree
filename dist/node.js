@@ -13,8 +13,8 @@ var Node = function() {
     this.children = [];
     this.objects = [];
     this.prev = null;
-    this.MAX_OBJECTS = this.MAX_OBJECTS || 5;
-    this.MAX_DEPTH = this.MAX_DEPTH || 100;
+    this.MAX_OBJECTS = MAX_OBJECTS || 5;
+    this.MAX_DEPTH = MAX_DEPTH || 100;
   }
   return ($traceurRuntime.createClass)(Node, {
     insert: function(key) {
