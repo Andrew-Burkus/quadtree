@@ -4,7 +4,7 @@ var NE = 1;
 var SW = 2;
 var SE = 3;
 var Node = function() {
-  function Node(x, y, width, height, depth) {
+  function Node(x, y, width, height, depth, MAX_OBJECTS, MAX_DEPTH) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -13,6 +13,8 @@ var Node = function() {
     this.children = [];
     this.objects = [];
     this.prev = null;
+    this.MAX_OBJECTS = this.MAX_OBJECTS || 5;
+    this.MAX_DEPTH = this.MAX_DEPTH || 100;
   }
   return ($traceurRuntime.createClass)(Node, {
     insert: function(key) {
@@ -21,7 +23,7 @@ var Node = function() {
         return;
       }
       this.objects.push(key);
-      if (this.objects.length > MAX_OBJECTS && this.depth <= MAX_DEPTH) {
+      if (this.objects.length > this.MAX_OBJECTS && this.depth <= this.MAX_DEPTH) {
         this.split();
         while (this.objects.length > 0) {
           var point = this.objects.pop();
