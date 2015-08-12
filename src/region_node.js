@@ -1,6 +1,6 @@
 class RegionNode extends Node {
-    constructor(x, y, width, height, depth) {
-        super(x, y, width, height, depth);
+    constructor(x, y, width, height, depth, max_depth, max_objects) {
+        super(x, y, width, height, depth, max_depth, max_objects);
         this.misfits = [];
     }
 

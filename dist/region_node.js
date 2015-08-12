@@ -1,7 +1,7 @@
 "use strict";
 var RegionNode = function($__super) {
-  function RegionNode(x, y, width, height, depth) {
-    $traceurRuntime.superConstructor(RegionNode).call(this, x, y, width, height, depth);
+  function RegionNode(x, y, width, height, depth, max_depth, max_objects) {
+    $traceurRuntime.superConstructor(RegionNode).call(this, x, y, width, height, depth, max_depth, max_objects);
     this.misfits = [];
   }
   return ($traceurRuntime.createClass)(RegionNode, {
