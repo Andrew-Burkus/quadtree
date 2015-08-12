@@ -4,7 +4,7 @@ const SW = 2;
 const SE = 3;
 
 class Node {
-    constructor(x, y, width, height, depth, MAX_OBJECTS, MAX_DEPTH) {
+    constructor(x, y, width, height, depth, MAX_DEPTH, MAX_OBJECTS) {
         this.x = x;
         this.y = y;
         this.width = width;
