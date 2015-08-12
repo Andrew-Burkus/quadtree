@@ -12,7 +12,6 @@ var Node = function() {
     this.depth = depth;
     this.children = [];
     this.objects = [];
-    this.prev = null;
     this.MAX_OBJECTS = MAX_OBJECTS || 5;
     this.MAX_DEPTH = MAX_DEPTH || 100;
   }
@@ -35,12 +34,7 @@ var Node = function() {
     },
     retrieve: function(key) {
       if (this.children.length) {
-        if (this.prev)
-          return this.prev;
-        else {
-          this.prev = this.children[this.index(key)].retrieve(key).concat(this.objects);
-          return this.prev;
-        }
+        return this.children[this.index(key)].retrieve(key);
       } else
         return this.objects;
     },
