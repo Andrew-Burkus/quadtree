@@ -1,9 +1,6 @@
-const MAX_OBJECTS = 1;
-const MAX_DEPTH = 1000;
-
 class QuadTree {
-    constructor(width, height) {
-        this.root = new Node(0, 0, width, height, 0);
+    constructor(width, height, max_depth, max_objects) {
+        this.root = new Node(0, 0, width, height, 0, max_depth, max_objects);
     }
 
     insert(key) {

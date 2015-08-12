@@ -15,7 +15,7 @@ class RegionNode extends Node {
         } else {
             this.objects.push(key);
 
-            if(this.objects.length > MAX_OBJECTS && this.depth < MAX_DEPTH) {
+            if(this.objects.length > this.MAX_OBJECTS && this.depth < this.MAX_DEPTH) {
                 this.split();
                 while(this.objects.length > 0) {
                     var key   = this.objects.pop();

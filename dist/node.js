@@ -12,6 +12,7 @@ var Node = function() {
     this.depth = depth;
     this.children = [];
     this.objects = [];
+    this.prev = null;
   }
   return ($traceurRuntime.createClass)(Node, {
     insert: function(key) {
@@ -31,8 +32,13 @@ var Node = function() {
       }
     },
     retrieve: function(key) {
-      if (this.childen.length) {
-        return this.children[this.index(key)].retrieve(key);
+      if (this.children.length) {
+        if (this.prev)
+          return this.prev;
+        else {
+          this.prev = this.children[this.index(key)].retrieve(key).concat(this.objects);
+          return this.prev;
+        }
       } else
         return this.objects;
     },

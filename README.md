@@ -11,8 +11,9 @@ about on wikipedia.
 
 ##Use
 the width and height of the space you wish to partition so eloquently
+along with the max depth and max objects per space.
 ```javascript
-    var tree = new QuadTree(width, height);
+    var tree = new QuadTree(width, height, 100, 5);
     tree.insert(item); //where item is an object with an x and y value.
     tree.retrieve(item); //where item is an object with an x and y value.
     //retrieve returns all objects which could collide with item

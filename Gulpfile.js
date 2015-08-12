@@ -24,8 +24,8 @@ gulp.task('compile', function() {
 
 gulp.task('lib', function() {
     return gulp.src('src/*')
-        .pipe(concat('QuadTree.js'))
         .pipe(traceur())
+        .pipe(concat('QuadTree.js'))
         .pipe(gulp.dest('lib/'));
 });
 

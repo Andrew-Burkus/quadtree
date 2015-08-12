@@ -24,7 +24,7 @@
 
             function setup() {
                 canvas = createCanvas(windowWidth, windowHeight).parent('container');
-                tree = new QuadTree(width, height);
+                tree = new QuadTree(width, height, 100, 5);
                 items = populatePoints(1000);
                 items.forEach(function(item) {
                     tree.insert(item);
@@ -50,9 +50,9 @@
                 var i;
                 var points = [];
                 for(i = 0; i < num; i++) {
-                    var x = random(0, width);
-                    var y = random(0, height);
-                    points.push({x: x, y: y});
+                    var ax = random(0, width);
+                    var ay = random(0, height);
+                    points.push({x: ax, y: ay});
                 }
                 return points;
             }

@@ -4,7 +4,7 @@ const SW = 2;
 const SE = 3;
 
 class Node {
-    constructor(x, y, width, height, depth) {
+    constructor(x, y, width, height, depth, MAX_OBJECTS, MAX_DEPTH) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -13,6 +13,8 @@ class Node {
         this.children = [];
         this.objects = [];
         this.prev = null;
+        this.MAX_OBJECTS = this.MAX_OBJECTS || 5;
+        this.MAX_DEPTH = this.MAX_DEPTH || 100;
     }
 
     insert(key) {
@@ -23,7 +25,7 @@ class Node {
 
         this.objects.push(key);
 
-        if(this.objects.length > MAX_OBJECTS && this.depth <= MAX_DEPTH) {
+        if(this.objects.length > this.MAX_OBJECTS && this.depth <= this.MAX_DEPTH) {
             this.split();
             while(this.objects.length > 0) {
                 var point = this.objects.pop();
