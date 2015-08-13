@@ -42,7 +42,7 @@ var QuadTree = function() {
       this.root.clear();
     },
     draw: function() {
-      if (window.p5)
+      if (window.p5 !== null)
         this.root.draw();
     }
   }, {});

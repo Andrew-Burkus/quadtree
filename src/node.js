@@ -66,13 +66,13 @@ class Node {
     }
 
     draw() {
+        push();
         noFill();
+        stroke(0, 0, 0);
         strokeWeight(2);
         rect(this.x, this.y, this.width, this.height);
-
-        this.children.forEach(function(child) {
-            child.draw();
-        });
+        for(var child of this.children) child.draw();
+        pop();
     }
 
     split() {

@@ -64,12 +64,35 @@ var Node = function() {
       }
     },
     draw: function() {
+      push();
       noFill();
+      stroke(0, 0, 0);
       strokeWeight(2);
       rect(this.x, this.y, this.width, this.height);
-      this.children.forEach(function(child) {
-        child.draw();
-      });
+      var $__4 = true;
+      var $__5 = false;
+      var $__6 = undefined;
+      try {
+        for (var $__2 = void 0,
+            $__1 = (this.children)[$traceurRuntime.toProperty(Symbol.iterator)](); !($__4 = ($__2 = $__1.next()).done); $__4 = true) {
+          var child = $__2.value;
+          child.draw();
+        }
+      } catch ($__7) {
+        $__5 = true;
+        $__6 = $__7;
+      } finally {
+        try {
+          if (!$__4 && $__1.return != null) {
+            $__1.return();
+          }
+        } finally {
+          if ($__5) {
+            throw $__6;
+          }
+        }
+      }
+      pop();
     },
     split: function() {
       this.children[NW] = new this.constructor(this.x, this.y, this.halfWidth, this.halfHeight, this.depth + 1, this.MAX_DEPTH, this.MAX_OBJECTS);

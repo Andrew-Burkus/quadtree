@@ -22,6 +22,6 @@ class QuadTree {
     }
 
     draw() {
-        if(window.p5) this.root.draw();
+        if(window.p5 !== null) this.root.draw();
     }
 }
