@@ -14,6 +14,7 @@ class Node {
         this.objects = [];
         this.MAX_OBJECTS = MAX_OBJECTS || 5;
         this.MAX_DEPTH = MAX_DEPTH || 100;
+        this.prev = null;
     }
 
     insert(key) {
@@ -36,9 +37,14 @@ class Node {
     }
 
     retrieve(key) {
+        if(this.prev) return this.prev;
+        var out = [];
         if(this.children.length) {
-            return this.children[this.index(key)].retrieve(key);
-        } else return this.objects;
+            out.push.apply(out, this.children[this.index(key)].retrieve(key));
+        }
+        out.push.apply(out, this.objects);
+        this.prev = out;
+        return out;
     }
 
     clear() {

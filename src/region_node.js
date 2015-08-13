@@ -31,12 +31,14 @@ class RegionNode extends Node {
     }
 
     retrieve(key) {
+        if(this.prev) return this.prev;
         var out = [];
         if(this.children.length) {
             out.push.apply(out, this.children[this.index(key)].retrieve(key));
         }
         out.push.apply(out, this.misfits);
         out.push.apply(out, this.objects);
+        this.prev = out;
         return out;
     }
 
