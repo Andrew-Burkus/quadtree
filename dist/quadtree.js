@@ -36,7 +36,7 @@ var QuadTree = function() {
       }
     },
     retrieve: function(item) {
-      return this.root.retrieve(item);
+      return this.root.retrieve(item).slice(0);
     },
     clear: function() {
       this.root.clear();

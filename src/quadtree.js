@@ -14,7 +14,7 @@ class QuadTree {
     }
 
     retrieve(item) {
-        return this.root.retrieve(item);
+        return this.root.retrieve(item).slice(0);
     }
 
     clear() {
